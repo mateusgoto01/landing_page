@@ -48,7 +48,7 @@ h2{
 #imagem{
     text-align: center;
     display: block;
-    margin: 10px;
+    margin: 10px;   
 }
 
 footer{
@@ -68,17 +68,26 @@ input{
     box-sizing: border-box;
     background: #f3efe1;
 }
-
 #button{
     font-family: 'Bebas Neue';
     font-size: 16px;
-
-    border: 50px;
     padding: 20px;
 
     cursor: pointer;
 
-    box-shadow:  5px 5px 12px 0px black;
     background: #EF4443;
     color: white;
+    margin: 40px 0 0 0;
+    position: relative;
+    left: 20%;
+}
+
+#button:hover{
+    background: #f16b6b;
+
+}
+
+#button:active{
+    position: relative;
+    top: 5px;
 }
