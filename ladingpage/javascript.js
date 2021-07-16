@@ -8,6 +8,7 @@ class validator{
     }
     validate(form){
         //validações não desaparecem preciso limpa-las
+        var check = 0;
         let current_validations = document.querySelectorAll('form .error-validation');
 
         if(current_validations.length){
@@ -17,24 +18,28 @@ class validator{
         let inputsArray = [...inputs];
 
     inputsArray.forEach(function(input) {
-
       // fazer validação de acordo com o atributo do input
       for(let i = 0; this.validations.length > i; i++) {
         if(input.getAttribute(this.validations[i]) != null) {
+            console.log("tenho erros de validação");
+            let method = this.validations[i].replace("data-", "").replace("-", "");
+            console.log(method);
+            // valor do input
+            let value = input.getAttribute(this.validations[i])
 
-          let method = this.validations[i].replace("data-", "").replace("-", "");
-
-          // valor do input
-          let value = input.getAttribute(this.validations[i])
-
-          // invoca o método
-          this[method](input,value);
-
+            // invoca o método
+            this[method](input,value);
+            check = 1;
         }
+        
       }
 
     }, this);
-
+    console.log(check);
+    if(check === 0){
+        storageData();
+    }
+    check = 0;
   }
 
     required(input){
@@ -49,13 +54,17 @@ class validator{
 
     emailcheck(input){
         //checar se esta no formato de email
-        let check = /\S+@\S+\.S+/;
+        let check = /\S+@\S+\.\S+/;
         
         let email = input.value;     
         if(!check.test(email)){
             let message = "Insira um e-mail válido.";
             this.print_message(input, message);
 
+        }
+        else{
+            storageData();
+            document.getElementById('box').style.display = "none";
         }
     }
 
@@ -102,7 +111,6 @@ let Validator = new validator();
 
 submit.addEventListener('click', function(e) {
     e.preventDefault();
-    storageData();
     Validator.validate(form);
     
   });
