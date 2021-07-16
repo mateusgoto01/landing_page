@@ -49,6 +49,14 @@ class validator{
 
     emailcheck(input){
         //checar se esta no formato de email
+        let check = /\S+@\S+\.S+/;
+        
+        let email = input.value;     
+        if(!check.test(email)){
+            let message = "Insira um e-mail válido.";
+            this.print_message(input, message);
+
+        }
     }
 
     print_message(input, msg){
