@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SellGames</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="javascript" href="javascript.js">
     <link rel="shortcut icon" href="image/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
+    <script src="javascript.js"></script>
     <main>
         <div id="content">
             <h1>Deseja ter os melhores jogos pelos menores preços?</h1>
@@ -34,22 +34,25 @@
 
         <div id="box">
             <h2>Receba email promocionais</h2>
-            <label for="dataName">Qual o teu nome?*</label>
+            <label for="dataName">Nome*</label>
             <br>
-            <input type= "text" name="dataName" id = "dataName">
+            <input type= "text" name="dataName" id = "dataName" placeholder="Digite seu nome aqui">
             <br>
-            <label for="dataEmail">Qual o teu e-mail?*</label>
+            <label for="dataEmail">E-mail*</label>
             <br>
-            <input type= "text" name="dataEmail" id = "dataEmail">
+            <input type= "text" name="dataEmail" id = "dataEmail" placeholder="Digite o seu e-mail aqui">
             <br>
-            <label for="dataGame">Qual o game que marcou sua vida?*</label>
+            <label for="dataGame">Qual o game que marcou sua vida?</label>
             <br>
-            <input type= "text" name="dataGame" id = "dataGame">
-            <button id="button">Quero receber as melhores ofertas</button>
+            <input type= "text" name="dataGame" id = "dataGame" placeholder="Digite o jogo que ficou no seu coração aqui">
+            <div>
+                <input type="submit" id="button" value= "Quero receber as melhores ofertas">
+            </div>
         </div>
     </main>
     <footer>
         <p>Esse site é fictício, os dados e promoções que constam aqui NÃO são reais. São puramente ilustrativos. Seus dados não serão salvos ou usados para outros fins. </p>
     </footer>
+    <p class="error-validation template"></p>
 </body>
 </html>

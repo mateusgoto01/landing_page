@@ -6,5 +6,3 @@ function storageData(){
     localStorage.setItem('Email', email);
     localStorage.setItem('Game', game);
 }
-
-button.onclick = storageData();

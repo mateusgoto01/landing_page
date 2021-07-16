@@ -64,6 +64,7 @@ label{
 }
 
 input{
+    outline: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     font-size: 18px;
@@ -74,6 +75,7 @@ input{
     background: #f3efe1;
 }
 #button{
+    outline: none;
     font-family: 'Bebas Neue';
     font-size: 16px;
     padding: 20px;
@@ -84,7 +86,6 @@ input{
     color: white;
     margin: 40px 0 0 0;
     position: relative;
-    left: 20%;
 }
 
 #button:hover{
@@ -95,4 +96,15 @@ input{
 #button:active{
     position: relative;
     top: 5px;
+}
+
+.error-validation{
+    color: rgb(253, 57, 57);
+    position: absolute;
+    top: 57px;
+    font-size: 0.8em;
+}
+
+.template{
+    display: none;
 }
