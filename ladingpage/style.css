@@ -64,6 +64,8 @@ label{
 }
 
 input{
+    margin: 0;
+    padding: 0;
     outline: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
@@ -72,7 +74,7 @@ input{
     margin: 8px 0;
     width: 100%;
     box-sizing: border-box;
-    background: #f3efe1;
+    background: #faf1d0;
 }
 #button{
     outline: none;
@@ -97,11 +99,19 @@ input{
     position: relative;
     top: 5px;
 }
+.quest{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    position: relative;
+}
 
 .error-validation{
+    margin: 0;
+    padding: 0;
     color: rgb(253, 57, 57);
     position: absolute;
-    top: 57px;
+    top: 37px;
     font-size: 0.8em;
 }
 

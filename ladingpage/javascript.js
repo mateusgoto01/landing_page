@@ -2,17 +2,78 @@ class validator{
 
     constructor(){
         this.validations = [
-
+            'data-required',
+            'data-emailcheck'
         ]
     }
     validate(form){
-        let inputs = form.getElementByTagName('input');
+        //validações não desaparecem preciso limpa-las
+        let current_validations = document.querySelectorAll('form .error-validation');
 
-        let inputs_array = [...inputs];
+        if(current_validations.length){
+            this.clean_validations(current_validations);
+        }
+        let inputs = form.getElementsByTagName('input');
+        let inputsArray = [...inputs];
 
-        inputs_array.forEach(function(input){
-            
-        }, this);
+    inputsArray.forEach(function(input) {
+
+      // fazer validação de acordo com o atributo do input
+      for(let i = 0; this.validations.length > i; i++) {
+        if(input.getAttribute(this.validations[i]) != null) {
+
+          let method = this.validations[i].replace("data-", "").replace("-", "");
+
+          // valor do input
+          let value = input.getAttribute(this.validations[i])
+
+          // invoca o método
+          this[method](input,value);
+
+        }
+      }
+
+    }, this);
+
+  }
+
+    required(input){
+        let value = input.value;
+
+        if(value === ''){
+            let message = "Este campo é obrigatório.";
+
+            this.print_message(input, message);
+        }
+    }
+
+    emailcheck(input){
+        //checar se esta no formato de email
+    }
+
+    print_message(input, msg){
+        // evitar que aconteça overlap de validações
+
+        let errors = input.parentNode.querySelector('.error-validation');
+
+        if(errors === null){
+            let template = document.querySelector('.error-validation').cloneNode(true);
+
+            template.textContent = msg;
+
+            let parent = input.parentNode;
+
+            template.classList.remove('template');
+
+            parent.appendChild(template);
+            console.log("mensagem enviada");
+        }
+
+        
+    }
+
+    clean_validations(validations){
+        validations.forEach(el => el.remove());
     }
 }
 
@@ -26,12 +87,14 @@ function storageData(){
     localStorage.setItem('Game', game);
 }
 
-
-let submit = document.getElementById('button');
 let form = document.getElementById('box');
-let validator = new validator;
-submit.addEventListener('click', function(e){
+let submit = document.getElementById('button');
 
+let Validator = new validator();
+
+submit.addEventListener('click', function(e) {
     e.preventDefault();
-
-});
+    storageData();
+    Validator.validate(form);
+    
+  });

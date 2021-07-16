@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="image/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
-    <script src="javascript.js"></script>
     <main>
         <div id="content">
             <h1>Deseja ter os melhores jogos pelos menores preços?</h1>
@@ -32,28 +31,29 @@
             </div> <!--bullet-->
         </div><!--content-->
 
-        <form id="box">
+        <form id="box" action="">
             <h2>Receba email promocionais</h2>
-            <div>
+            <div class="quest">
                 <label for="dataName">Nome*</label>
-                <input type= "text" name="dataName" id = "dataName" placeholder="Digite seu nome aqui">
+                <input type= "text" name="dataName" id = "dataName" placeholder="Digite seu nome aqui" data-required>
             </div>
-            <div>
+            <div class="quest">
                 <label for="dataEmail">E-mail*</label>
-                <input type= "text" name="dataEmail" id = "dataEmail" placeholder="Digite o seu e-mail aqui">
+                <input type= "text" name="dataEmail" id = "dataEmail" placeholder="Digite o seu e-mail aqui" data-required>
             </div>
-            <div>
+            <div class="quest">
                 <label for="dataGame">Qual o game que marcou sua vida?</label>
                 <input type= "text" name="dataGame" id = "dataGame" placeholder="Digite o jogo que ficou no seu coração aqui">
             </div>
             <div>
-                <input type="submit" id="button" value= "Quero receber as melhores ofertas">
-            </form>
-        </div>
+                <input id="button" type="submit" value= "Quero receber as melhores ofertas">
+            </div>
+        </form>
     </main>
     <footer>
         <p>Esse site é fictício, os dados e promoções que constam aqui NÃO são reais. São puramente ilustrativos. Seus dados não serão salvos ou usados para outros fins. </p>
     </footer>
     <p class="error-validation template"></p>
+    <script src="javascript.js"></script>
 </body>
 </html>
