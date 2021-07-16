@@ -64,7 +64,8 @@ class validator{
         }
         else{
             storageData();
-            document.getElementById('box').style.display = "none";
+            document.getElementById('sign').style.display = "none";
+            document.getElementById('sucess').style.display = "block";
         }
     }
 

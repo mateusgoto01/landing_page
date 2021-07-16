@@ -118,3 +118,9 @@ input{
 .template{
     display: none;
 }
+
+#sucess{
+    text-align: center;
+    font-family: 'Bebas Neue';
+    display: none;
+}
